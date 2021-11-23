@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
+
 import './App.css';
+// import {Route,Router} from 'react-router-dom';
+import Home from './components/pages/Home';
+
+import Sidebar from './components/pages/Sidebar';
 
 function App() {
+
+  const [dt,setDt] = useState('');
+  
+  const tweetDisplay = (tweet) => {
+    // axios.get("http://localhost:5000/exercises")
+    //   .then(res => {
+    //     console.log(res.data);
+    //     setDt(res.data);
+    //   })
+    setDt(tweet);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar tweetDisplay={ tweetDisplay}/>
+      <Home data={dt}/>
     </div>
   );
 }
