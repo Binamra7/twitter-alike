@@ -29,6 +29,13 @@ function User() {
 
   const [user, setUser] = React.useState([]);
 
+
+  //fetches the user data from the local host
+  //axios.get("http://localhost:5000/exercises")
+
+
+
+  //fetches the user data from the server
   axios.get("http://localhost:5000/exercises")
   .then(res => {
       console.log("Test")

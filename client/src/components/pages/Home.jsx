@@ -47,7 +47,12 @@ function Home(props) {
         // retweets: 0,          
     //   },...tweet]);
         
-        axios.get("http://localhost:5000/exercises")
+      //fetching data from the local host
+        //axios.get("http://localhost:5000/exercises")
+      
+      //fetching data from the server
+      //https://twitter-alike.herokuapp.com/exercises
+        axios.get("https://twitter-alike.herokuapp.com/exercises")
       .then(res => {
         console.log(res.data);
           setTweet(res.data);
@@ -61,12 +66,11 @@ function Home(props) {
       <h1 className="home__heading">Home</h1>
       <div className="tweet-list">
         {tweet.slice(0).reverse().map((tweet) =>
-          tweet.trim !== 0 ? (
+          
             <Tweet key={tweet.id} user={tweet.username} tweet={tweet.description} />
-          ) : (
-            console.log("error_Tweet")
           )
-        )}
+        }
+        )
       </div>
       {/* {finalTweet} */}
     </div>

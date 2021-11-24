@@ -33,7 +33,12 @@ export function UserTweet(props) {
       date:"2021-11-23T11:35:08.322Z"
     }
     console.log(uploadTweet);
-    axios.post("http://localhost:5000/exercises/add", uploadTweet)
+
+//post request to local host
+    //axios.post("http://localhost:5000/exercises/add", uploadTweet)
+
+    //post request to heroku
+    axios.post("https://twitter-alike.herokuapp.com/exercises/add", uploadTweet)
     .then(res => console.log(res.data));
   };
 
