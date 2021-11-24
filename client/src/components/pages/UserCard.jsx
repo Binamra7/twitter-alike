@@ -36,7 +36,7 @@ function User() {
 
 
   //fetches the user data from the server
-  axios.get("http://localhost:5000/exercises")
+  axios.get("https://twitter-alike.herokuapp.com/exercises")
   .then(res => {
       console.log("Test")
     console.log(res.data);
